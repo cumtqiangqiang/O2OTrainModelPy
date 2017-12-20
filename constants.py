@@ -10,3 +10,7 @@ TRAIN_OFF_USER_MER_FEATURE_PATH = "Resource/features/offline/trainUserMerFeature
 TRAIN_ONLINE_USER_FEATURE_PATH = "Resource/features/online/trainUserFeature"
 TRAIN_ONLINE_MER_FEATURE_PATH = "Resource/features/online/trainMerFeature"
 TRAIN_ONLINE_USER_MER_FEATURE_PATH = "Resource/features/online/trainUserMerFeature"
+
+label_data_path = 'Resource/trainLabelData/train_label_data.csv'
+train_feature_path = 'Resource/train_features.csv'
+

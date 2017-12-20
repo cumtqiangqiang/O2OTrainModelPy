@@ -41,11 +41,17 @@ if __name__ == '__main__':
     online_mer_feature = pd.read_csv('Resource/features/online/trainMerFeature/merchant_feature.csv')
     online_user_mer_feature = pd.read_csv('Resource/features/online/trainUserMerFeature/user_merchant_feature.csv')
 
-    user_feature = pd.merge(online_user_feature,on='User_id',how='outer')
-    user_feature.tocsv('Resource/features/user_features.csv')
-    merchant_feature = pd.merge(online_mer_feature,on='Merchant_id',how='outer')
+    user_feature = offline_user_feature.merge(online_user_feature,on='userId',how='left')
 
-    merchant_feature.tocsv('Resource/features/mer_features.csv')
+    columns  = label_data.columns.tolist()
+    df = label_data.merge(user_feature,on='userId',how = 'left')
+    df1 =df.merge(offline_user_mer_feature,on=['userId','merchantId'],how = 'left')
+
+    df2 = df1.merge(offline_mer_feature,on='merchantId',how = 'left')
+    df2.fillna(np.nan, inplace=True)
+    df2.drop(columns,axis=1,inplace = True)
+    df2.to_csv('Resource/train_features.csv',index = False)
+
 
 
 
