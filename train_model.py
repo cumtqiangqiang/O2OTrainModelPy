@@ -5,7 +5,7 @@ from  constants import  *
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.pipeline import Pipeline
-from memory_profiler import profile
+# from memory_profiler import profile
 import gc
 
 if __name__ == '__main__':
@@ -25,7 +25,11 @@ if __name__ == '__main__':
 
     gc.collect()
     x_train,x_test,y_train,y_test =train_test_split(train_features,y_label,
-                                                    random_state=1,train_size=0.8)
+                                                    random_state=1,train_size=0.1)
+
+    x_test_1,x_test_2,y_test_1,y_test_2 = train_test_split(x_test,y_test,
+                                                    random_state=1,train_size=0.1)
+
 
     # print(x_train.info())
     lr = Pipeline([('sc', StandardScaler()),
@@ -34,8 +38,8 @@ if __name__ == '__main__':
 
     lr.fit(x_train, y_train.ravel())
 
-    y_hat = lr.predict(x_test)
-    print(print('准确度：%.2f%%' % (100*np.mean(y_hat == y_test.ravel()))))
+    y_hat = lr.predict(x_test_1)
+    print(print('准确度：%.2f%%' % (100*np.mean(y_hat == y_test_1.ravel()))))
 
 
 
