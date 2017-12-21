@@ -1,5 +1,6 @@
 Resource
 .DS_Store
 .idea
+Test/features/
 __pycache__
 

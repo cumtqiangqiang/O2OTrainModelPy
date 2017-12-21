@@ -20,3 +20,5 @@ train_feature_path = 'Resource/train_features.csv'
 # 仅仅通过0 和-1 进行填充缺失值
 train_feature_filna_path ='Resource/train_features_filna.csv'
 
+less_label_data='Test/features/label_data.csv'
+less_feature_data='Test/features/feature.csv'
