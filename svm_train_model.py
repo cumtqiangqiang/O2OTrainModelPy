@@ -4,6 +4,11 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from  constants import  *
+
+def cal_average_auc(df):
+    print(df)
+
+
 if __name__ == '__main__':
 
     label_data = pd.read_csv(less_label_data)
@@ -16,8 +21,17 @@ if __name__ == '__main__':
     # clf = svm.SVC(C=0.8, kernel='rbf', gamma=20, decision_function_shape='ovr')
     clf.fit(x_train, y_train.ravel())
 
+    y_pre = clf.predict(x_test)
+
+    print(len(y_pre))
+    label_data['predict']=pd.Series(y_pre)
+    
+
+
+
     # 准确率
     print(clf.score(x_train, y_train))  # 精度
     print('训练集准确率：', accuracy_score(y_train, clf.predict(x_train)))
+    print('--------------------------------------------------------------')
     print(clf.score(x_test, y_test))
     print('测试集准确率：', accuracy_score(y_test, clf.predict(x_test)))
