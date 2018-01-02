@@ -24,8 +24,8 @@ def calc_auc(df):
     return pd.DataFrame({'Coupon_id': [coupon], 'auc': [auc]})
 if __name__ == '__main__':
     start_time = datetime.now()
-    label_data = pd.read_csv(label_data_path)
-    data = pd.read_csv(train_feature_filna_path).astype(float)
+    label_data = pd.read_csv(less_label_data)
+    data = pd.read_csv(less_feature_data).astype(float)
 
 
     x_train, x_test, y_train, y_test = train_test_split(data, label_data,
