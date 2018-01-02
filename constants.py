@@ -13,12 +13,15 @@ TRAIN_ONLINE_USER_MER_FEATURE_PATH = "Resource/features/online/trainUserMerFeatu
 
 # 带有标签 0 1 的offline 训练数据
 label_data_path = 'Resource/trainLabelData/train_label_data.csv'
-
 # 未进行填充的feature
 train_feature_path = 'Resource/train_features.csv'
-
 # 仅仅通过0 和-1 进行填充缺失值
 train_feature_filna_path ='Resource/train_features_filna.csv'
 
+# 10000条数据
 less_label_data='Test/features/label_data.csv'
 less_feature_data='Test/features/feature.csv'
+
+# 3000条数据
+less_train_label = 'Test/train/train_label.csv'
+less_train_feature = 'Test/train/train_features.csv'

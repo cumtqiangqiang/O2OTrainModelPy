@@ -1,19 +1,15 @@
 import  pandas as pd
 import  numpy as np
-
+from  datetime import  datetime
+import  time
 if __name__ == '__main__':
-    d = {'col1':['a','b','c','a','b'],'col2':['a','b','c','a','d']
-         ,'col3':np.arange(5)
-         }
-    df = pd.DataFrame(data=d)
-    print(df)
-    # grop = df.groupby('col1').mean()
-    # print(grop)
-    print('---------------------------')
 
-    for (k1,k2),group in df.groupby(['col1','col2']):
-        print(k1,k2)
-        print(group)
+    start_time = datetime.now()
+    end_time = datetime.now()
+
+    diff_time = end_time - start_time
+
+    print(diff_time.seconds/60)
 
 
 
