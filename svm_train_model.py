@@ -24,8 +24,8 @@ def calc_auc(df):
     return pd.DataFrame({'Coupon_id': [coupon], 'auc': [auc]})
 if __name__ == '__main__':
     start_time = datetime.now()
-    label_data = pd.read_csv(less_label_data)
-    data = pd.read_csv(less_feature_data).astype(float)
+    label_data = pd.read_csv(label_data_path)
+    data = pd.read_csv(train_feature_filna_path).astype(float)
 
     x_train, x_test, y_train, y_test = train_test_split(data, label_data,
                                                         random_state=1, train_size=0.8)
@@ -40,7 +40,7 @@ if __name__ == '__main__':
                  ('rbf', 1, 0.1), ('rbf', 1, 1), ('rbf', 1, 10), ('rbf', 1, 100),
                  ('rbf', 5, 0.1), ('rbf', 5, 1), ('rbf', 5, 10), ('rbf', 5, 100))
 
-    # clf_param = (('linear', 0.5),('rbf', 1, 0.1))
+    # clf_param = (('linear', 0.1))
     # clf = svm.SVC(C=0.1, kernel='linear', decision_function_shape='ovr')
     # clf = svm.SVC(C=0.8, kernel='rbf', gamma=20, decision_function_shape='ovr')
     file_name = ''

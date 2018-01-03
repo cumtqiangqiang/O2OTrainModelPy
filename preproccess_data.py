@@ -28,29 +28,29 @@ def get_time_diff(start,end):
         return  False
 
 if __name__ == '__main__':
-    # raw_offline_data =  pd.read_csv(train_offline_data_path)
-    # data = add_label(raw_offline_data)
-    #
-    # data.to_csv('Resource/trainLabelData/train_label_data.csv',index=False)
-    # label_data = pd.read_csv('Resource/trainLabelData/train_label_data.csv')
-    # offline_user_feature = pd.read_csv('Resource/features/offline/trainUserFeature/user_feature.csv')
-    # offline_mer_feature = pd.read_csv('Resource/features/offline/trainMerFeature/merchant_feature.csv')
-    # offline_user_mer_feature = pd.read_csv('Resource/features/offline/trainUserMerFeature/user_merchant_feature.csv')
-    #
-    # online_user_feature = pd.read_csv('Resource/features/online/trainUserFeature/user_feature.csv')
+    raw_offline_data =  pd.read_csv(train_offline_data_path)
+    data = add_label(raw_offline_data)
+
+    data.to_csv('resource/trainlabeldata/train_label_data.csv',index=False)
+    label_data = pd.read_csv('resource/trainlabeldata/train_label_data.csv')
+    offline_user_feature = pd.read_csv('resource/features/offline/trainUserFeature/user_feature.csv')
+    offline_mer_feature = pd.read_csv('resource/features/offline/trainMerFeature/merchant_feature.csv')
+    offline_user_mer_feature = pd.read_csv('resource/features/offline/trainUserMerFeature/user_merchant_feature.csv')
+
+    online_user_feature = pd.read_csv('resource/features/online/trainUserFeature/user_feature.csv')
     # online_mer_feature = pd.read_csv('Resource/features/online/trainMerFeature/merchant_feature.csv')
     # online_user_mer_feature = pd.read_csv('Resource/features/online/trainUserMerFeature/user_merchant_feature.csv')
-    #
-    # user_feature = offline_user_feature.merge(online_user_feature,on='userId',how='left')
-    #
-    # columns  = label_data.columns.tolist()
-    # df = label_data.merge(user_feature,on='userId',how = 'left')
-    # df1 =df.merge(offline_user_mer_feature,on=['userId','merchantId'],how = 'left')
-    #
-    # df2 = df1.merge(offline_mer_feature,on='merchantId',how = 'left')
-    # df2.fillna(np.nan, inplace=True)
-    # df2.drop(columns,axis=1,inplace = True)
-    # df2.to_csv('Resource/train_features.csv',index = False)
+
+    user_feature = offline_user_feature.merge(online_user_feature,on='userId',how='left')
+
+    columns  = label_data.columns.tolist()
+    df = label_data.merge(user_feature,on='userId',how = 'left')
+    df1 =df.merge(offline_user_mer_feature,on=['userId','merchantId'],how = 'left')
+
+    df2 = df1.merge(offline_mer_feature,on='merchantId',how = 'left')
+    df2.fillna(np.nan, inplace=True)
+    df2.drop(columns,axis=1,inplace = True)
+    df2.to_csv('resource/trainfeatures/train_features.csv',index = False)
 
     train_features = pd.read_csv(train_feature_path).astype(float)
     columns = train_features.columns.tolist()
