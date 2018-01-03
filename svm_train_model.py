@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from  constants import  *
 from sklearn.metrics import  roc_auc_score
 from sklearn.preprocessing import MaxAbsScaler
-import time
+from sklearn.externals import joblib
 from  datetime import  datetime
 def cal_average_auc(df):
     grouped = df.groupby('Coupon_id', as_index=False).apply(lambda x: calc_auc(x))
@@ -27,7 +27,6 @@ if __name__ == '__main__':
     label_data = pd.read_csv(less_label_data)
     data = pd.read_csv(less_feature_data).astype(float)
 
-
     x_train, x_test, y_train, y_test = train_test_split(data, label_data,
                                                         random_state=1, train_size=0.8)
     max_abs_scaler = MaxAbsScaler()
@@ -44,12 +43,15 @@ if __name__ == '__main__':
     # clf_param = (('linear', 0.5),('rbf', 1, 0.1))
     # clf = svm.SVC(C=0.1, kernel='linear', decision_function_shape='ovr')
     # clf = svm.SVC(C=0.8, kernel='rbf', gamma=20, decision_function_shape='ovr')
+    file_name = ''
     for i, param in enumerate(clf_param):
         clf = svm.SVC(C=param[1], kernel=param[0])
         if param[0] == 'rbf':
             clf.gamma = param[2]
+            file_name = '%s_%d_%.1f' % (param[0],param[1], param[2])
             print('高斯核，C=%.1f，$\gamma$ =%.1f' % (param[1], param[2]))
         else:
+            file_name = '%s_%.1f' % (param[0], param[1])
             print('线性核，C=%.1f' % param[1])
         clf.fit(x_train_maxabs, y_train_label.ravel())
 
@@ -68,17 +70,13 @@ if __name__ == '__main__':
 
         print('测试集平均auc: ',cal_average_auc(test_evalute))
         print('训练集平均auc: ',cal_average_auc(train_evaluete))
-
-        # print(y_pre)
-
         # 准确率
         # print(clf.score(x_train, y_train_label))  # 精度
         # print('训练集准确率：', accuracy_score(y_train_label, clf.predict(x_train)))
         # print(clf.score(x_test, y_test_label))
         # print('测试集准确率：', accuracy_score(y_test_label, clf.predict(x_test)))
         end_time = datetime.now()
-
         diff_time = end_time - start_time
-
+        joblib.dump(clf,model_path +"/" + file_name )
         print('运行时间 ：',diff_time.seconds / 60)
         print('--------------------------------------------------------------')

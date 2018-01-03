@@ -28,7 +28,7 @@ def get_time_diff(start,end):
         return  False
 
 if __name__ == '__main__':
-    # raw_offline_data =  pd.read_csv(TRAIN_OFFLINE_DATA_PATH)
+    # raw_offline_data =  pd.read_csv(train_offline_data_path)
     # data = add_label(raw_offline_data)
     #
     # data.to_csv('Resource/trainLabelData/train_label_data.csv',index=False)
@@ -60,7 +60,7 @@ if __name__ == '__main__':
         else:
             train_features[col] = train_features[col].fillna(0)
 
-    train_features.to_csv(train_feature_filna_path)
+    train_features.to_csv(train_feature_filna_path,index = False)
 
 
 

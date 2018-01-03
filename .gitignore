@@ -1,6 +1,9 @@
 Resource
 .DS_Store
 .idea
-Test/features/
+test/train/
+test/features/
+model/
+submit/submit.csv
 __pycache__
 

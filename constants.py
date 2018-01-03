@@ -1,27 +1,29 @@
-TRAIN_OFFLINE_DATA_PATH = "Resource/tb01ccf_offline_stage1_train.csv"
-TRAIN_ONLINE_DATA_PATH = "Resource/tb02ccf_online_stage1_train.csv"
-TEST_OFFLINE_DATA_PATH = "Resource/tb03ccf_offline_stage1_test_revised.csv"
+train_offline_data_path = "resource/tb01ccf_offline_stage1_train.csv"
+train_online_data_path = "resource/tb02ccf_online_stage1_train.csv"
+test_offline_data_path = "resource/tb03ccf_offline_stage1_test_revised.csv"
 
 # 特征值路径
-TRAIN_OFF_USER_FEATURE_PATH = "Resource/features/offline/trainUserFeature"
-TRAIN_OFF_MER_FEATURE_PATH = 'Resource/features/offline/trainMerFeature/part-00000.csv'
-TRAIN_OFF_USER_MER_FEATURE_PATH = "Resource/features/offline/trainUserMerFeature"
+train_off_user_feature_path = "resource/features/offline/trainUserFeature"
+train_off_mer_feature_path = 'resource/features/offline/trainMerFeature'
+train_off_user_mer_feature_path = "resource/features/offline/trainUserMerFeature"
 
-TRAIN_ONLINE_USER_FEATURE_PATH = "Resource/features/online/trainUserFeature"
-TRAIN_ONLINE_MER_FEATURE_PATH = "Resource/features/online/trainMerFeature"
-TRAIN_ONLINE_USER_MER_FEATURE_PATH = "Resource/features/online/trainUserMerFeature"
+train_online_user_feature_path = "resource/features/online/trainUserFeature"
+train_online_mer_feature_path = "resource/features/online/trainMerFeature"
+train_online_user_mer_feature_path = "resource/features/online/trainUserMerFeature"
 
+model_path = "model/svm"
 # 带有标签 0 1 的offline 训练数据
-label_data_path = 'Resource/trainLabelData/train_label_data.csv'
+label_data_path = 'resource/trainlabeldata/train_label_data.csv'
 # 未进行填充的feature
-train_feature_path = 'Resource/train_features.csv'
-# 仅仅通过0 和-1 进行填充缺失值
-train_feature_filna_path ='Resource/train_features_filna.csv'
 
-# 10000条数据
-less_label_data='Test/features/label_data.csv'
-less_feature_data='Test/features/feature.csv'
+train_feature_path = 'resource/trainfeatures/train_features.csv'
+# 仅仅通过0 和-1 进行填充缺失值
+train_feature_filna_path ='resource/trainfeatures/train_features_filna.csv'
+
+# 200000条数据
+less_label_data='test/features/label_data.csv'
+less_feature_data='test/features/feature.csv'
 
 # 3000条数据
-less_train_label = 'Test/train/train_label.csv'
-less_train_feature = 'Test/train/train_features.csv'
+less_train_label = 'test/train/train_label.csv'
+less_train_feature = 'test/train/train_features.csv'
